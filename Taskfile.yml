@@ -2,7 +2,7 @@ version: '3'
 
 tasks:
   composer:
-    desc: Run Composer, the dependency manager for PHP.
+    desc: Run Composer, the dependency manager for PHP
     cmds:
       - |
         docker run --rm --interactive --tty \
@@ -13,3 +13,13 @@ tasks:
         --volume $PWD:/app \
         composer {{.CLI_ARGS}}
     silent: true
+
+  deploy:
+    desc: Deploy to AWS
+    cmds:
+      - serverless deploy
+
+  up:
+    desc: Start the local development environment
+    cmds:
+      - docker-compose up
