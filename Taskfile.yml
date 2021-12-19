@@ -1,12 +1,15 @@
-# https://taskfile.dev
-
 version: '3'
 
-vars:
-  GREETING: Hello, World!
-
 tasks:
-  default:
+  composer:
+    desc: Run Composer, the dependency manager for PHP.
     cmds:
-      - echo "{{.GREETING}}"
+      - |
+        docker run --rm --interactive --tty \
+        --env COMPOSER_HOME \
+        --env COMPOSER_CACHE_DIR \
+        --volume ${COMPOSER_HOME:-$HOME/.config/composer}:$COMPOSER_HOME \
+        --volume ${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}:$COMPOSER_CACHE_DIR \
+        --volume $PWD:/app \
+        composer {{.CLI_ARGS}}
     silent: true
