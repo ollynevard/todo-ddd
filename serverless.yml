@@ -1,22 +1,22 @@
 service: todo-ddd
 
 provider:
-    name: aws
-    region: eu-west-2
-    runtime: provided.al2
-    lambdaHashingVersion: 20201221
+  name: aws
+  region: eu-west-2
+  runtime: provided.al2
+  lambdaHashingVersion: 20201221
 
 functions:
-    http:
-        handler: lambda.php
-        layers:
-            - ${bref:layer.php-81}
-        events:
-            - httpApi: '*'
+  http:
+    handler: lambda.php
+    layers:
+      - ${bref:layer.php-81}
+    events:
+      - httpApi: '*'
 
 package:
-    exclude:
-        - 'tests/**'
+  exclude:
+    - 'tests/**'
 
 plugins:
-    - ./vendor/bref/bref
+  - ./vendor/bref/bref
