@@ -6,10 +6,10 @@ tasks:
     cmds:
       - |
         docker run --rm --interactive --tty \
-        --env COMPOSER_HOME \
-        --env COMPOSER_CACHE_DIR \
-        --volume ${COMPOSER_HOME:-$HOME/.config/composer}:$COMPOSER_HOME \
-        --volume ${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}:$COMPOSER_CACHE_DIR \
+        --env COMPOSER_HOME=/root/.config/composer \
+        --env COMPOSER_CACHE_DIR=/root/.cache/composer \
+        --volume ${COMPOSER_HOME:-$HOME/.config/composer}:/root/.config/composer \
+        --volume ${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}:/root/.cache/composer \
         --volume $PWD:/app \
         composer {{.CLI_ARGS}}
     silent: true

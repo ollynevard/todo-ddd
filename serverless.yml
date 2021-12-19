@@ -5,18 +5,30 @@ provider:
   region: eu-west-2
   runtime: provided.al2
   lambdaHashingVersion: 20201221
+  stage: dev
+  environment:
+    APP_ENV: prod
 
 functions:
-  http:
+  web:
     handler: public/index.php
+    timeout: 28 # API Gateway has a timeout of 29 seconds
     layers:
       - ${bref:layer.php-81-fpm}
     events:
       - httpApi: '*'
 
+  console:
+    handler: bin/console
+    timeout: 120
+    layers:
+      - ${bref:layer.php-81}
+      - ${bref:layer.console}
+
 package:
   exclude:
     - 'tests/**'
+    - 'var/**'
 
 plugins:
   - ./vendor/bref/bref
