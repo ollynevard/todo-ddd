@@ -23,3 +23,8 @@ tasks:
     desc: Start the local development environment
     cmds:
       - docker-compose up
+
+  psalm:
+    desc: Run Psalm, a static analysis tool for PHP
+    cmds:
+      - docker-compose run --rm --entrypoint /var/task/vendor/bin/psalm php
