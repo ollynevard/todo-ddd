@@ -1,0 +1,20 @@
+{
+    "name": "ollynevard/todo-ddd",
+    "description": "A simple task management application, written in PHP with Domain-driven Design",
+    "type": "project",
+    "require": {
+        "bref/bref": "^1.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TodoDDD\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Olly Nevard",
+            "email": "150187+ollynevard@users.noreply.github.com"
+        }
+    ]
+}
