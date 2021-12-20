@@ -1,0 +1,5 @@
+default:
+  suites:
+    task_features:
+      paths:    [ '%paths.base%/features/task' ]
+      contexts: [ 'App\Features\TaskContext' ]

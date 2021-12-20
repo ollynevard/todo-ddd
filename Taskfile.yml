@@ -27,4 +27,9 @@ tasks:
   psalm:
     desc: Run Psalm, a static analysis tool for PHP
     cmds:
-      - docker-compose run --rm --entrypoint /var/task/vendor/bin/psalm php
+      - docker-compose run --rm --entrypoint /var/task/vendor/bin/psalm php {{.CLI_ARGS}}
+
+  behat:
+    desc: Run Behat, the Behaviour-Driven-Develpment framework for PHP
+    cmds:
+      - docker-compose run --rm --entrypoint /var/task/vendor/bin/behat php {{.CLI_ARGS}}

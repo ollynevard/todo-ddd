@@ -16,4 +16,5 @@ services:
     image: bref/php-81-fpm-dev
     volumes:
       - .:/var/task:ro
+      - ./features:/var/task/features
       - ./var:/var/task/var
