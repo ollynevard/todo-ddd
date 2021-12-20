@@ -73,6 +73,7 @@
         }
     },
     "require-dev": {
+        "behat/behat": "^3.10",
         "vimeo/psalm": "^4.15"
     }
 }
